@@ -4,7 +4,7 @@
 
 ### Book Shop - COURSE PROJECT FROM 'Full stack Universal React with Redux, Node js and MongoDB' by Marco Tomasello (https://www.udemy.com/full-stack-universal-react-with-redux-express-and-mongodb/)
 
-###Created using MERN STACK (MongoDB, ExpressJS, ReactJS, NodeJS)
+#### Created using MERN STACK (MongoDB, ExpressJS, ReactJS, NodeJS)
 
 # START
 
@@ -18,7 +18,7 @@
 
 # FOR PROD
 
-### set up keys under config directory
+- set up keys under config directory
 
 # FOR IMPROVEMENT
 

@@ -2,7 +2,7 @@
 
 ## Book Shop is a basic e-commerce web app that sells books.
 
-### Book Shop - COURSE PROJECT FROM 'Full stack Universal React with Redux, Node js and MongoDB' by Marco Tomasello (https://www.udemy.com/full-stack-universal-react-with-redux-express-and-mongodb/)
+- Book Shop - COURSE PROJECT FROM 'Full stack Universal React with Redux, Node js and MongoDB' by Marco Tomasello (https://www.udemy.com/full-stack-universal-react-with-redux-express-and-mongodb/)
 
 #### Created using MERN STACK (MongoDB, ExpressJS, ReactJS, NodeJS)
 

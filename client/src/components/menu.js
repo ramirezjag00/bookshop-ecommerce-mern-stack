@@ -26,7 +26,7 @@ class Menu extends Component {
 			        Admin
 			      </NavItem>
 			      <NavItem eventKey={2} href="/cart">
-			        Your Cart 
+			        Your Cart
 			        { (this.props.cartItemsNumber > 0)? (<Badge className="badge">{this.props.cartItemsNumber}</Badge>):('')}
 			      </NavItem>
 			    </Nav>

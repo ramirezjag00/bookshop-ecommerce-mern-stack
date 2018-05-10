@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route} from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+// import * as actions from '../actions';
 import BooksForm from './pages/booksForm';
 import BooksList from './pages/booksList';
 import Cart from './pages/cart';
 import Menu from './menu';
 import Footer from './footer';
+import {bindActionCreators} from 'redux';
+import {getCart} from '../actions/cartActions';
 
 
 class App extends Component {
+  componentDidMount() {
+    this.props.getCart();
+  }
   render(){
     return(
     	<div>
@@ -33,5 +38,13 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, actions)(App);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ 
+    getCart
+    //getCart: getCart
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+// export default connect(mapStateToProps, actions)(App);
 

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {getBooks} from '../../actions/booksActions';
 import {bindActionCreators} from 'redux';
-import {Grid, Col, Row, Button} from 'react-bootstrap';
+import {Carousel, Grid, Col, Row} from 'react-bootstrap';
 import BookItem from './bookItem';
-import BooksForm from './booksForm';
-import Cart from './cart';
+// import BooksForm from './booksForm';
+// import Cart from './cart';
 
 class BooksList extends Component {
 	componentDidMount() {
@@ -20,6 +20,7 @@ class BooksList extends Component {
 						_id={booksArr._id}
 						title={booksArr.title}
 						description={booksArr.description}
+						images={booksArr.images}
 						price={booksArr.price}
 					/>       
 				</Col>
@@ -28,12 +29,48 @@ class BooksList extends Component {
 		return(
 			<Grid>
 				<Row>
-					<Cart />
+					<Carousel>
+					  <Carousel.Item>
+					    <img width={900} height={300} alt="900x300" src="/images/home_carousel1.jpg" />
+					    <Carousel.Caption>
+					      <h3>First slide label</h3>
+					      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+					    </Carousel.Caption>
+					  </Carousel.Item>
+					  <Carousel.Item>
+					    <img width={900} height={300} alt="900x300" src="/images/home_carousel2.jpg" />
+					    <Carousel.Caption>
+					      <h3>Second slide label</h3>
+					      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					    </Carousel.Caption>
+					  </Carousel.Item>
+					  <Carousel.Item>
+					    <img width={900} height={300} alt="900x300" src="/images/home_carousel4.jpg" />
+					    <Carousel.Caption>
+					      <h3>Third slide label</h3>
+					      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					    </Carousel.Caption>
+					  </Carousel.Item>
+					  <Carousel.Item>
+					    <img width={900} height={300} alt="900x300" src="/images/home_carousel5.jpg" />
+					    <Carousel.Caption>
+					      <h3>Fourth slide label</h3>
+					      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					    </Carousel.Caption>
+					  </Carousel.Item>
+					  <Carousel.Item>
+					    <img width={900} height={300} alt="900x300" src="/images/home_carousel6.jpg" />
+					    <Carousel.Caption>
+					      <h3>Fifth slide label</h3>
+					      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					    </Carousel.Caption>
+					  </Carousel.Item>
+					</Carousel>
 				</Row>
-				<Row>
-					<Col xs={12} sm={6}>
-						<BooksForm />
-					</Col>
+				{/*<Row>
+					<Cart />
+				</Row>*/}
+				<Row style={{marginTop: '15px'}}>
 					{booksList}
 				</Row>
 			</Grid>

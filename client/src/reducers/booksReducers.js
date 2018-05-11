@@ -1,24 +1,19 @@
 //BOOKS REDUCERS
 export function booksReducers(state={
-  books:
-    [{
-      _id: 1,
-      title: 'this is the book title',
-      description: 'this is the book description',
-      price: 44.33
-    },
-    {
-      _id: 2,
-      title: 'this is the second book title',
-      description: 'this is the second book description',
-      price: 69
-    }]
+  books:[]
   }, action) {
   switch(action.type){
     case "GET_BOOKS":
-      return {...state, books:[...state.books]};
+      return {...state, books:[...action.payload]};
+
     case "POST_BOOK":
-      return {books:[...state.books, ...action.payload]};
+      return {...state, books:[...state.books, ...action.payload], msg:'Saved! Click to continue', style: 'success', validation:'success'};
+
+    case "POST_BOOK_REJECTED":
+      return {...state, msg:'Please, try again', style:'danger', validation:'error'};
+
+    case "RESET_BUTTON":
+      return {...state, msg:null, style:'primary', validation: null};
 
     case "DELETE_BOOK":
     //create a copy of the current array of books
@@ -26,7 +21,7 @@ export function booksReducers(state={
     //determine at which index in books array is the book to be deleted
     const indexToDelete = currentBookToDelete.findIndex(
       function(book){
-        return book._id == action.payload;
+        return book._id.toString() === action.payload;
       }
     )
     //use slice to remove the book at the specified index

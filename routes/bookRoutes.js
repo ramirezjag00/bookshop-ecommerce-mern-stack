@@ -4,23 +4,29 @@ const Books = mongoose.model('books');
 module.exports = app => {
 
 	//GET BOOKS
-	app.get('/books', (req, res) => {
+	app.get('/api/books', (req, res) => {
 		Books.find((err,books) => {
-			err ? err : res.json(books);
+			if (err) {
+				throw err;
+			}
+			res.json(books);
 		})
 	});
 
 	//POST BOOKS
-	app.post('/books', (req,res) => {
+	app.post('/api/books', (req,res) => {
 		const book = req.body;
 
 		Books.create(book, (err, books) =>{
-			err ? err : res.json(books);
+			if (err) {
+				throw err;
+			}
+			res.json(books);
 		})
 	});
 
 	//UPDATE BOOKS
-	app.put('/books/:_id', (req,res) => {
+	app.put('/api/books/:_id', (req,res) => {
 		const book = req.body;
 		const query = req.params._id;
 
@@ -39,15 +45,21 @@ module.exports = app => {
 		const options = {new: true};
 
 		Books.findOneAndUpdate(query, update, options, (err,books) => {
-			err ? err : res.json;
+			if (err) {
+				throw err;
+			}
+			res.json;
 		})
 	});
 
 	//DELETE BOOKS
-	app.delete('/books/:_id', (req,res) => {
+	app.delete('/api/books/:_id', (req,res) => {
 		const query = {_id: req.params._id};
 		Books.remove(query, (err, books) => {
-			err ? err : res.json(books);
+			if (err) {
+				console.log("# API DELETE BOOKS: ", err);
+			}
+			res.json(books);
 		})
 	});
 };
